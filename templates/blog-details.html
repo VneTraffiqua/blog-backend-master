@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %} {{ post.title }} - Blog Details {% endblock %}
 {% load static %}
-  {% block content %}
+{% block content %}
   <!--================ Hero sm Banner start =================-->
   <section class="mb-30px">
     <div class="container">
@@ -27,7 +27,7 @@
             <div class="main_blog_details">
                 {% if post.image_url %}
                   <img class="img-fluid" src="{{ post.image_url }}" alt="uploading image...">
-                  {% else %}
+                {% else %}
                     <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="uploading image...">
                 {% endif %}
                 <h4>{{ post.title }}</h4>
@@ -57,9 +57,9 @@
 
                 <div class="comments-area">
                     <h4>{{ post.comments|length }} Comments </h4>
-                    {% for comment in comments %}
+                    {% for comment in post.comments %}
                         <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
+                          <div class="single-comment justify-content-between d-flex">
                             <div class="user justify-content-between d-flex">
                                 <div class="desc">
                                     <h5><a href="#">{{ comment.author }}</a></h5>
@@ -72,41 +72,10 @@
                             <div class="reply-btn">
                                     <a href="" class="btn-reply text-uppercase">reply</a>
                             </div>
+                          </div>
                         </div>
-                    </div>
                     {% endfor %}
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="desc">
-                                    <h5><a href="#">Maria Luna</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="comment-list">
-                        <div class="single-comment justify-content-between d-flex">
-                            <div class="user justify-content-between d-flex">
-                                <div class="desc">
-                                    <h5><a href="#">Ina Hayes</a></h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                    <p class="comment">
-                                        Never say goodbye till the end comes!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
         </div>
 
@@ -136,4 +105,4 @@
     </div>
   </section>
   <!--================ End Blog Post Area =================-->
-  {% endblock %}
+{% endblock %}
